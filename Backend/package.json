@@ -8,6 +8,7 @@
     "dev": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "exceljs": "^4.4.0",
     "express": "^5.1.0",
     "os": "^0.1.2",
