@@ -6,7 +6,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import College_chart from './Reports/College_chart';
 import Marketing_chart from './Reports/Marketing_chart';
-import Hr_chart from './Reports/hr_chart';
+import Hr_chart from './Reports/Hr_chart';
 import Card from "../components/Card";
 
 
