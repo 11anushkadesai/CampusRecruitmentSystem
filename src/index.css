@@ -1,0 +1,6 @@
+@import "tailwindcss";
+.chart {
+  page-break-after: always; /* optional, for print not for PDF */
+  padding: 20px;
+  background: #fff;
+}
