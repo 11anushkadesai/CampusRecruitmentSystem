@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "exceljs": "^4.4.0",
+    "express": "^5.1.0",
     "os": "^0.1.2",
     "path": "^0.12.7",
     "puppeteer": "^24.8.2",
