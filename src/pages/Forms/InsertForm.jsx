@@ -27,7 +27,8 @@ const InsertForm = ({ onClose, onAddRow }) => {
       [name]: value,
     }));
   };
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
+
   // Insert handler to post data and update parent table
  const handleInsert = async () => {
   try {

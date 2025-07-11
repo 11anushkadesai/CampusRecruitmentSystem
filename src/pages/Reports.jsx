@@ -9,7 +9,8 @@ import Marketing_chart from './Reports/Marketing_chart';
 import Hr_chart from './Reports/Hr_chart';
 import Card from "../components/Card";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 

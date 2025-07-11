@@ -5,7 +5,8 @@ import Card from "../components/Card";
 import HrForm from './Forms/HrForm';
 
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 const locationOptions = [
   { value: 'Mumbai', label: 'Mumbai' },
   { value: 'Delhi', label: 'Delhi' },

@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Card from '../components/Card';
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 
 function DataScraping() {
   const [activeTab, setActiveTab] = useState('scrape');
