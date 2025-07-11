@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
@@ -22,11 +24,13 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 // ✅ MySQL Connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "TalentCorner_hr$",
-    database: "campus_rec",
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    port: process.env.MYSQL_PORT
 });
+
 
 db.connect((err) => {
     if (err) {
