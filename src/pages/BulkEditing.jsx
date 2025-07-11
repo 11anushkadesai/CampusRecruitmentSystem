@@ -4,7 +4,8 @@ import Card from "../components/Card";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 
 const BulkEditing = () => {
     const [recentDataset, setRecentDataset] = useState([]);
@@ -120,7 +121,7 @@ const BulkEditing = () => {
         formData.append("file", file);
 
         try {
-            const response = await fetch("${BASE_URL}/upload", {
+            const response = await fetch(`${BASE_URL}/upload`, {
                 method: "POST",
                 body: formData,
             });

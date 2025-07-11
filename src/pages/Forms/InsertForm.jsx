@@ -32,7 +32,7 @@ const BASE_URL = import.meta.env.VITE_API_URL;
   // Insert handler to post data and update parent table
  const handleInsert = async () => {
   try {
-    const res = await axios.post('${BASE_URL}/add-college', formData);
+    const res = await axios.post(`${BASE_URL}/add-college`, formData);
 
     if (res.status === 200) {
       alert('✅ Data inserted successfully');

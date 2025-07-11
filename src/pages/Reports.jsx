@@ -24,7 +24,7 @@ const Reports = () => {
   const [chartData, setChartData] = useState([]);
 
   const handleUpdateReport = async () => {
-    const response = await fetch("${BASE_URL}/chart-data?" + new URLSearchParams({
+    const response = await fetch(`${BASE_URL}/chart-data?` + new URLSearchParams({
       year, month, state, district, course
     }), {
       method: "GET",

@@ -64,7 +64,7 @@ const SingleDataEdit = () => {
     }
     setLoading(true);
     try {
-      const response = await axios.get('${BASE_URL}/search', {
+      const response = await axios.get(`${BASE_URL}/search`, {
         params: {
           college,
           location: location.map(l => l.value).join(','),

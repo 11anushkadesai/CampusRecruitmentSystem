@@ -127,7 +127,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchTotalScraped = async () => {
       try {
-        const response = await fetch('${BASE_URL}/total-scraped');
+        const response = await fetch(`${BASE_URL}/total-scraped`);
         const data = await response.json();
         setTotalScraped(data.total);
       } catch (err) {
@@ -166,7 +166,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchLastFiveRows = async () => {
       try {
-        const response = await fetch('${BASE_URL}/last-5-rows');
+        const response = await fetch(`${BASE_URL}/last-5-rows`);
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         if (Array.isArray(data)) {
@@ -186,7 +186,7 @@ useEffect(() => {
 
 //Marketing team chart 
  useEffect(() => {
-    axios.get('${BASE_URL}/mteam-chart')
+    axios.get(`${BASE_URL}/mteam-chart`)
       .then((res) => {
         const teamNames = res.data.map(item => item.Marketing_team_name);
         const collegeCounts = res.data.map(item => item.total_college);
@@ -207,7 +207,7 @@ useEffect(() => {
   }, []);
 // hr team  chart
  useEffect(() => {
-  axios.get('${BASE_URL}/hrteam-chart')
+  axios.get(`${BASE_URL}/hrteam-chart`)
     .then(res => {
       const teamNames = res.data.map(item => item.Hr_team_name);
       const hiredCounts = res.data.map(item => item.total_hired);
@@ -233,7 +233,7 @@ useEffect(() => {
 
 //Course wisec college 
  useEffect(() => {
-    fetch('${BASE_URL}/course-college') // Update if backend uses a different port
+    fetch(`${BASE_URL}/course-college`) // Update if backend uses a different port
       .then(res => res.json())
       .then(data => {
         const labels = data.map(item => item.Course);
