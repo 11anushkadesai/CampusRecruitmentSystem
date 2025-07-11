@@ -56,7 +56,7 @@ function Marketing_chart() {
         if (district) queryParams.append('district', district);
         
   
-        const response = await fetch(`http://localhost:5000/total-clg?${queryParams.toString()}`);
+        const response = await fetch(`https://campusrecruitmentsystem.onrender.com/total-clg?${queryParams.toString()}`);
         const data = await response.json();
         setTotalColleges(data.total);
       } catch (error) {
@@ -97,7 +97,7 @@ const handleExportPDF = async () => {
 
 
   const handleUpdateReport = async () => {
-    const response = await fetch("http://localhost:5000/marketing_chart?" + new URLSearchParams({
+    const response = await fetch("https://campusrecruitmentsystem.onrender.com/marketing_chart?" + new URLSearchParams({
       team,
       proposal,
       state,
@@ -115,7 +115,7 @@ const handleExportPDF = async () => {
   // total hiring college 
     
     useEffect(() => {
-      fetch('http://localhost:5000/hiring-clg')
+      fetch('https://campusrecruitmentsystem.onrender.com/hiring-clg')
         .then(response => response.json())
         .then(data => {
           console.log("Hiring Colleges API Response:", data);
@@ -127,7 +127,7 @@ const handleExportPDF = async () => {
      // total hiring college from consultant
     
     useEffect(() => {
-      fetch('http://localhost:5000/hiring-clg-consultant')
+      fetch('https://campusrecruitmentsystem.onrender.com/hiring-clg-consultant')
         .then(response => response.json())
         .then(data => {
           console.log("Hiring Colleges API Response:", data);
@@ -148,7 +148,7 @@ const handleExportPDF = async () => {
           if (district) queryParams.append('district', district);
           
     
-          const response = await fetch(`http://localhost:5000/total-payment?${queryParams.toString()}`);
+          const response = await fetch(`https://campusrecruitmentsystem.onrender.com/total-payment?${queryParams.toString()}`);
           const data = await response.json();
           setotalpayment(data.total_payment || 0); // Use the correct key 'total_payment' here
         } catch (error) {

@@ -27,11 +27,11 @@ const InsertForm = ({ onClose, onAddRow }) => {
       [name]: value,
     }));
   };
-
+const BASE_URL = process.env.REACT_APP_API_URL;
   // Insert handler to post data and update parent table
  const handleInsert = async () => {
   try {
-    const res = await axios.post('http://localhost:5000/add-college', formData);
+    const res = await axios.post('${BASE_URL}/add-college', formData);
 
     if (res.status === 200) {
       alert('✅ Data inserted successfully');

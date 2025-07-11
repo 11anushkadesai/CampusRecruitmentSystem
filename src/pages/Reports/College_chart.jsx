@@ -59,7 +59,7 @@ useEffect(() => {
       if (district) queryParams.append('district', district);
       if (course) queryParams.append('course', course);
 
-      const response = await fetch(`http://localhost:5000/college-count?${queryParams.toString()}`);
+      const response = await fetch(`https://campusrecruitmentsystem.onrender.com/college-count?${queryParams.toString()}`);
       const data = await response.json();
       setTotalColleges(data.total);
     } catch (error) {
@@ -112,7 +112,7 @@ useEffect(() => {
       if (district) queryParams.append('district', district);
       if (course) queryParams.append('course', course);
 
-      const response = await fetch(`http://localhost:5000/total-candidates?${queryParams.toString()}`);
+      const response = await fetch(`https://campusrecruitmentsystem.onrender.com/total-candidates?${queryParams.toString()}`);
       const data = await response.json();
       setotalcandidates(data.total_candidates || 0); // Adjust this key if your backend formats it differently
     } catch (error) {
@@ -135,7 +135,7 @@ useEffect(() => {
       if (district) queryParams.append('district', district);
       if (course) queryParams.append('course', course);
 
-      const response = await fetch(`http://localhost:5000/placed-candidates?${queryParams.toString()}`);
+      const response = await fetch(`https://campusrecruitmentsystem.onrender.com/placed-candidates?${queryParams.toString()}`);
       const data = await response.json();
       setotalplacedcandidates(data.total_candidates || 0); // Adjust this key if your backend formats it differently
     } catch (error) {
@@ -158,7 +158,7 @@ useEffect(() => {
       if (district) queryParams.append('district', district);
       if (course) queryParams.append('course', course);
 
-      const response = await fetch(`http://localhost:5000/payment-received?${queryParams.toString()}`);
+      const response = await fetch(`https://campusrecruitmentsystem.onrender.com/payment-received?${queryParams.toString()}`);
       const data = await response.json();
       setotalpayment(data.total_payment || 0); // Use the correct key 'total_payment' here
     } catch (error) {
@@ -174,7 +174,7 @@ useEffect(() => {
 
   // Dummy fetchChartData implementation (replace with actual API logic)
    const handleUpdateReport = async () => {
-    const response = await fetch("http://localhost:5000/chart-data?" + new URLSearchParams({
+    const response = await fetch("https://campusrecruitmentsystem.onrender.com/chart-data?" + new URLSearchParams({
       year,
       month,
       state,
@@ -191,7 +191,7 @@ useEffect(() => {
 // total hiring college 
 
 useEffect(() => {
-  fetch('http://localhost:5000/hiring-clg')
+  fetch('https://campusrecruitmentsystem.onrender.com/hiring-clg')
     .then(response => response.json())
     .then(data => {
       console.log("Hiring Colleges API Response:", data);
@@ -203,7 +203,7 @@ useEffect(() => {
  // total hiring college from consultant
 
 useEffect(() => {
-  fetch('http://localhost:5000/hiring-clg-consultant')
+  fetch('https://campusrecruitmentsystem.onrender.com/hiring-clg-consultant')
     .then(response => response.json())
     .then(data => {
       console.log("Hiring Colleges API Response:", data);

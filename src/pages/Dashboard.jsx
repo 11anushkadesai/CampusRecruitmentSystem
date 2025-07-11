@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import InserForm from "./Forms/InsertForm";
 
 
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const data = [
   { name: "Colleges", value: 2000 },
@@ -65,7 +66,7 @@ const navigate = useNavigate();
         if (district) queryParams.append('district', district);
         if (course) queryParams.append('course', course);
   
-        const response = await fetch(`http://localhost:5000/college-count?${queryParams.toString()}`);
+        const response = await fetch(`${BASE_URL}/college-count?${queryParams.toString()}`);
         const data = await response.json();
         setTotalColleges(data.total);
       } catch (error) {
@@ -88,7 +89,7 @@ const navigate = useNavigate();
         if (district) queryParams.append('district', district);
         if (course) queryParams.append('course', course);
   
-        const response = await fetch(`http://localhost:5000/total-candidates?${queryParams.toString()}`);
+        const response = await fetch(`${BASE_URL}/total-candidates?${queryParams.toString()}`);
         const data = await response.json();
         setotalcandidates(data.total_candidates || 0); // Adjust this key if your backend formats it differently
       } catch (error) {
@@ -110,7 +111,7 @@ useEffect(() => {
       if (district) queryParams.append('district', district);
       if (course) queryParams.append('course', course);
 
-      const response = await fetch(`http://localhost:5000/placed-candidates?${queryParams.toString()}`);
+      const response = await fetch(`${BASE_URL}/placed-candidates?${queryParams.toString()}`);
       const data = await response.json();
       setotalplacedcandidates(data.total_candidates || 0); // Adjust this key if your backend formats it differently
     } catch (error) {
@@ -125,7 +126,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchTotalScraped = async () => {
       try {
-        const response = await fetch('http://localhost:5000/total-scraped');
+        const response = await fetch('${BASE_URL}/total-scraped');
         const data = await response.json();
         setTotalScraped(data.total);
       } catch (err) {
@@ -146,7 +147,7 @@ useEffect(() => {
       if (state) queryParams.append('state', state);
       if (district) queryParams.append('district', district);
 
-      const response = await fetch(`http://localhost:5000/totalhired?${queryParams.toString()}`);
+      const response = await fetch(`${BASE_URL}/totalhired?${queryParams.toString()}`);
       const data = await response.json();
       
       // ✅ Corrected key: total_hired
@@ -164,7 +165,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchLastFiveRows = async () => {
       try {
-        const response = await fetch('http://localhost:5000/last-5-rows');
+        const response = await fetch('${BASE_URL}/last-5-rows');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         if (Array.isArray(data)) {
@@ -184,7 +185,7 @@ useEffect(() => {
 
 //Marketing team chart 
  useEffect(() => {
-    axios.get('http://localhost:5000/mteam-chart')
+    axios.get('${BASE_URL}/mteam-chart')
       .then((res) => {
         const teamNames = res.data.map(item => item.Marketing_team_name);
         const collegeCounts = res.data.map(item => item.total_college);
@@ -205,7 +206,7 @@ useEffect(() => {
   }, []);
 // hr team  chart
  useEffect(() => {
-  axios.get('http://localhost:5000/hrteam-chart')
+  axios.get('${BASE_URL}/hrteam-chart')
     .then(res => {
       const teamNames = res.data.map(item => item.Hr_team_name);
       const hiredCounts = res.data.map(item => item.total_hired);
@@ -231,7 +232,7 @@ useEffect(() => {
 
 //Course wisec college 
  useEffect(() => {
-    fetch('http://localhost:5000/course-college') // Update if backend uses a different port
+    fetch('${BASE_URL}/course-college') // Update if backend uses a different port
       .then(res => res.json())
       .then(data => {
         const labels = data.map(item => item.Course);

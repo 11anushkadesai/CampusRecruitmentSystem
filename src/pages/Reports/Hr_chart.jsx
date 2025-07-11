@@ -45,7 +45,7 @@ function Hr_chart() {
 
 const handleUpdateReport = async () => {
   try {
-    const response = await fetch("http://localhost:5000/hr-chart?" + new URLSearchParams({
+    const response = await fetch("https://campusrecruitmentsystem.onrender.com/hr-chart?" + new URLSearchParams({
       state,
       district,
       team
@@ -101,7 +101,7 @@ const handleExportPDF = async () => {
           if (district) queryParams.append('district', district);
           
     
-          const response = await fetch(`http://localhost:5000/totalcollege?${queryParams.toString()}`);
+          const response = await fetch(`https://campusrecruitmentsystem.onrender.com/totalcollege?${queryParams.toString()}`);
           const data = await response.json();
           setTotalColleges(data.total);
         } catch (error) {
@@ -122,7 +122,7 @@ const handleExportPDF = async () => {
         if (state) queryParams.append('state', state);
         if (district) queryParams.append('district', district);
 
-        const response = await fetch(`http://localhost:5000/totalstudents?${queryParams}`);
+        const response = await fetch(`https://campusrecruitmentsystem.onrender.com/totalstudents?${queryParams}`);
         const data = await response.json();
         setTotalstudent(data.total_students || 0);
       } catch (error) {
@@ -145,7 +145,7 @@ useEffect(() => {
       if (state) queryParams.append('state', state);
       if (district) queryParams.append('district', district);
 
-      const response = await fetch(`http://localhost:5000/totalhired?${queryParams.toString()}`);
+      const response = await fetch(`https://campusrecruitmentsystem.onrender.com/totalhired?${queryParams.toString()}`);
       const data = await response.json();
       
       // ✅ Corrected key: total_hired

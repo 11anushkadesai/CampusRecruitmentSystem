@@ -6,6 +6,7 @@ import { Plus} from "lucide-react";
 import Card from "../components/Card";
 import InserForm from "./Forms/InsertForm";
 
+const BASE_URL = process.env.REACT_APP_API_URL;
 const locationOptions = [
   { value: 'Mumbai', label: 'Mumbai' },
   { value: 'Delhi', label: 'Delhi' },
@@ -62,7 +63,7 @@ const SingleDataEdit = () => {
     }
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/search', {
+      const response = await axios.get('${BASE_URL}/search', {
         params: {
           college,
           location: location.map(l => l.value).join(','),
@@ -95,7 +96,7 @@ const SingleDataEdit = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/update/${editingCollege.Clg_ID}`, updatedCollege);
+      await axios.put(`${BASE_URL}/update/${editingCollege.Clg_ID}`, updatedCollege);
       setColleges(prev =>
         prev.map(col => (col.Clg_ID === editingCollege.Clg_ID ? { ...col, ...updatedCollege } : col))
       );
@@ -111,7 +112,7 @@ const SingleDataEdit = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/delete/${collegeId}`);
+      await axios.delete(`${BASE_URL}/delete/${collegeId}`);
       setColleges(colleges.filter(col => col.Clg_ID !== collegeId));
     } catch (error) {
       console.error('Error deleting data:', error);

@@ -9,6 +9,7 @@ import Marketing_chart from './Reports/Marketing_chart';
 import Hr_chart from './Reports/Hr_chart';
 import Card from "../components/Card";
 
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -22,7 +23,7 @@ const Reports = () => {
   const [chartData, setChartData] = useState([]);
 
   const handleUpdateReport = async () => {
-    const response = await fetch("http://localhost:5000/chart-data?" + new URLSearchParams({
+    const response = await fetch("${BASE_URL}/chart-data?" + new URLSearchParams({
       year, month, state, district, course
     }), {
       method: "GET",

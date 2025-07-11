@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Card from '../components/Card';
 
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 function DataScraping() {
   const [activeTab, setActiveTab] = useState('scrape');
@@ -65,7 +66,7 @@ const availableCities = customState ? cities[customState] || [] : [];
 const streams = ["MBA/PGDM","B.Sc", "B.Com", "BA", "BE/B.Tech", "BBA/BMS", "M.Sc", "BCA", "MA", "ME/M.Tech", "B.Ed", "Polytechnic", "M.Com", "MCA", "M.Phil/Ph.D in Science", "BE/B.Tech Lateral", "B.Pharm", "B.Sc (Nursing)", "M.Phil/Ph.D in Arts", "M.Phil/Ph.D in Engineering", "M.Phil/Ph.D in Management", "M.Pharm", "LLB", "BA/BBA LLB", "B.Des", "GNM", "M.Phil/Ph.D in Commerce", "BHM", "LLM", "M.Ed", "BMM", "M.Phil/Ph.D in Pharmacy", "B.Pharma (Lateral)", "MBBS", "M.Sc (Nursing)", "MD", "Bachelor of Physiotherapy (BPT)", "B.Sc (Agriculture)", "B.Sc (Medicine)", "MSW", "BMLT", "MS", "Bachelors in Vocational Courses", "B.Arch", "M.Phil/Ph.D in Law", "M.Phil/Ph.D in Education", "BDS", "D.El.Ed", "M.Phil/Ph.D in Medicine", "M.Sc (Agriculture)", "MMC", "M.Sc (Medicine)", "DMLT", "B.P.Ed", "MDS", "Bachelor of Animation", "Master of Physiotherapy (MPT)", "Executive MBA", "ANM", "M.Des", "D.Ed", "M.Phil/Ph.D in Agriculture", "MCA (Lateral)", "BHM (Hospital)", "BAMS", "BSW", "BFA", "M.Phil/Ph.D in Mass Communication", "Bachelor in Aviation", "M.Ch", "Diploma in Engineering", "M.P.Ed", "M.Phil/Ph.D in Computer Applications", "MHM", "M.Arch", "MPH", "BHMS", "M.Phil/Ph.D in Paramedical", "MHA", "MMS", "Diplomate National Board [DNB]", "M.Phil/Ph.D in Architecture", "M.Phil/Ph.D in Design"
 ];
   useEffect(() => {
-    fetch('http://localhost:5000/distinct')
+    fetch('${BASE_URL}/distinct')
       .then(response => response.json())
       .then(data => setFile(data))
       .catch(error => console.error('Error fetching data:', error));
@@ -89,7 +90,7 @@ const streams = ["MBA/PGDM","B.Sc", "B.Com", "BA", "BE/B.Tech", "BBA/BMS", "M.Sc
     setIsScraping(true);
 
     try {
-      const response = await fetch('http://localhost:5000/scrape', {
+      const response = await fetch('${BASE_URL}/scrape', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -121,7 +122,7 @@ const streams = ["MBA/PGDM","B.Sc", "B.Com", "BA", "BE/B.Tech", "BBA/BMS", "M.Sc
     setIsScraping(false); // Optimistically set to false in UI
 
     try {
-      const response = await fetch('http://localhost:5000/stop_scrape', {
+      const response = await fetch('${BASE_URL}/stop_scrape', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -144,7 +145,7 @@ const streams = ["MBA/PGDM","B.Sc", "B.Com", "BA", "BE/B.Tech", "BBA/BMS", "M.Sc
     formData.append("file", fileInputRef.current.files[0]);
 
     try {
-      const response = await fetch("http://localhost:5000/upload", {
+      const response = await fetch("${BASE_URL}/upload", {
         method: "POST",
         body: formData,
       });
