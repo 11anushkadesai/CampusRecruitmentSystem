@@ -10,7 +10,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const upload = multer({ dest: 'uploads/' });
 
-
+app.get('/', (req, res) => {
+  res.send('🎉 Campus Recruitment System API is live!');
+});
 
 const app = express();
 const PORT = 5000; // Use only one port, e.g., 5000
