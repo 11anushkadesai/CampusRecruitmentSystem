@@ -259,7 +259,7 @@ useEffect(() => {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-3 sm:mb-4 md:mb-5">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold text-gray-800 mb-3 sm:mb-4 md:mb-5">
   Campus Recruitment Dashboard
 </h1>
 <p className="text-sm sm:text-base md:text-lg text-gray-500 font-semibold mt-1">
@@ -275,7 +275,7 @@ useEffect(() => {
       <div className="w-full mt-5 overflow-x-auto">
   <div className="flex gap-4 min-w-max px-2">
     
-    <Card className="min-w-[250px]">
+    <Card className="min-w-[200px]">
       <div className="flex items-center gap-5">
         <Building className="w-14 h-14 shadow-md rounded-2xl p-2 bg-purple-100 hover:bg-purple-200 text-purple-800" />
         <div>
@@ -285,7 +285,7 @@ useEffect(() => {
       </div>
     </Card>
 
-    <Card className="min-w-[250px]">
+    <Card className="min-w-[200px]">
       <div className="flex items-center gap-5">
         <TrendingUp className="w-14 h-14 shadow-md rounded-2xl p-2 bg-green-100 hover:bg-green-200 text-green-800" />
         <div>
@@ -296,7 +296,7 @@ useEffect(() => {
       </div>
     </Card>
 
-    <Card className="min-w-[250px]">
+    <Card className="min-w-[200px]">
       <div className="flex items-center gap-5">
         <BarChart2 className="w-14 h-14 shadow-md rounded-2xl p-2 bg-blue-100 hover:bg-blue-200 text-blue-800" />
         <div>
@@ -306,7 +306,7 @@ useEffect(() => {
       </div>
     </Card>
 
-    <Card className="min-w-[250px]">
+    <Card className="min-w-[200px]">
       <div className="flex items-center gap-5">
         <Users className="w-14 h-14 shadow-md rounded-2xl p-2 bg-pink-100 hover:bg-pink-200 text-pink-800" />
         <div>
@@ -316,7 +316,7 @@ useEffect(() => {
       </div>
     </Card>
 
-    <Card className="min-w-[250px]">
+    <Card className="min-w-[200px]">
       <div className="flex items-center gap-5">
         <Users className="w-14 h-14 shadow-md rounded-2xl p-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-800" />
         <div>
