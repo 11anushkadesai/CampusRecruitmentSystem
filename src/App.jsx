@@ -20,6 +20,8 @@ export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
+    <div className="max-w-[1440px] mx-auto px-4">
+  
     <Router>
       <div className="flex">
         <Navbar onToggleSidebar={() => setIsSidebarOpen(prev => !prev)} />
@@ -48,5 +50,7 @@ export default function App() {
         </main>
       </div>
     </Router>
+</div>
+
   );
 }
