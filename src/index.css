@@ -6,3 +6,16 @@
   padding: 20px;
   background: #fff;
 }
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* ✅ Add global base layout styles */
+html,
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1f2937; /* Tailwind's gray-800 */
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+  overflow-x: hidden;
+}
